@@ -26,7 +26,7 @@
 
 using namespace std;
 
-rclcpp::Node::SharedPtr g_node;
+extern rclcpp::Node::SharedPtr g_node;
 std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster;
 rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr pub_scan, pub_cmap, pub_init, pub_pmap;
 rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr pub_test, pub_prev_path, pub_curr_path;

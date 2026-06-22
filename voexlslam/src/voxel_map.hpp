@@ -2,6 +2,7 @@
 #define VOXEL_MAP2_HPP
 
 #include "tools.hpp"
+#include "ros2_compat.hpp"
 #include "preintegration.hpp"
 #include <thread>
 #include <Eigen/Eigenvalues>

@@ -27,7 +27,7 @@ public:
 
   Eigen::Matrix<double, DIM, DIM> cov;
 
-  deque<sensor_msgs::msg::ImuPtr> _imus;
+  deque<sensor_msgs::msg::Imu::SharedPtr> _imus;
 
   IMU_PRE(const Eigen::Vector3d &bg1 = Eigen::Vector3d::Zero(), const Eigen::Vector3d &ba1 = Eigen::Vector3d::Zero())
   {
@@ -47,7 +47,7 @@ public:
     cov.setZero();
   }
 
-  void push_imu(deque<sensor_msgs::msg::ImuPtr> &imus)
+  void push_imu(deque<sensor_msgs::msg::Imu::SharedPtr> &imus)
   {
     _imus.insert(_imus.end(), imus.begin(), imus.end());
     Eigen::Vector3d cur_gyr, cur_acc;

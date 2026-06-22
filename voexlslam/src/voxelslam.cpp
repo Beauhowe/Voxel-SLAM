@@ -1,5 +1,7 @@
 #include "voxelslam.hpp"
 
+rclcpp::Node::SharedPtr g_node;
+
 using namespace std;
 
 class ResultOutput
@@ -1323,7 +1325,7 @@ public:
       mp[i] = i;
     win_base = 0; win_count = 0; pcl_path.clear();
     pub_pl_func(pcl_path, pub_cmap);
-    ROS_WARN("Reset");
+    RCLCPP_WARN(g_node->get_logger(), "Reset");
   }
 
   // After local BA, update the map and marginalize the points of oldest scan

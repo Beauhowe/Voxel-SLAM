@@ -17,6 +17,8 @@ void ros2_param(const rclcpp::Node::SharedPtr &node, const std::string &name, T 
   value = node->get_parameter(ros2_name).get_value<T>();
 }
 
+extern rclcpp::Node::SharedPtr g_node;
+
 inline double ros2_now_seconds(const rclcpp::Node::SharedPtr &node)
 {
   return node->now().seconds();

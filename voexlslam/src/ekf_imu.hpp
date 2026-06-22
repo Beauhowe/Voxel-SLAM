@@ -122,10 +122,10 @@ public:
     xc.p = pos_imu + note * vel_imu * dt + note * 0.5 * acc_imu * dt * dt;
     xc.t = pcl_end_time;
 
-    sensor_msgs::msg::ImuPtr imu1(new sensor_msgs::msg::Imu(*imus.front()));
-    sensor_msgs::msg::ImuPtr imu2(new sensor_msgs::msg::Imu(*imus.back()));
-    imu1->header.stamp.fromSec(last_pcl_end_time);
-    imu2->header.stamp.fromSec(pcl_end_time);
+    auto imu1 = std::make_shared<sensor_msgs::msg::Imu>(*imus.front());
+    auto imu2 = std::make_shared<sensor_msgs::msg::Imu>(*imus.back());
+    imu1->header.stamp = rclcpp::Time(static_cast<int64_t>(last_pcl_end_time * 1e9));
+    imu2->header.stamp = rclcpp::Time(static_cast<int64_t>(pcl_end_time * 1e9));
     // imus.pop_front();
     last_imu = imus.back();
     last_pcl_end_time = pcl_end_time;
