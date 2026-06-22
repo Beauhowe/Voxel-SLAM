@@ -1,0 +1,20 @@
+<library path="voexlslam_pointcloud2">
+  <class
+    name="voexlslam_pointcloud2/PointCloud2"
+    type="voexlslam_pointcloud2::PointCloud2Display"
+    base_class_type="rviz_common::Display">
+    <description>
+      PointCloud2 display used by Voxel-SLAM, with NaN point filtering before rendering.
+    </description>
+    <message_type>sensor_msgs/msg/PointCloud2</message_type>
+  </class>
+  <class
+    name="voxelslam_pointcloud2/VoxelSLAMPointCloud2"
+    type="voexlslam_pointcloud2::PointCloud2Display"
+    base_class_type="rviz_common::Display">
+    <description>
+      Compatibility alias for ROS1 VoxelSLAM RViz configuration files.
+    </description>
+    <message_type>sensor_msgs/msg/PointCloud2</message_type>
+  </class>
+</library>
